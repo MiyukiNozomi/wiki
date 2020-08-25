@@ -1,10 +1,10 @@
 body {
-  background-color: black;
+  font-family: Arial;
   margin: 0;
 }
 
 .headerBox {
-
+    border-bottom: 1px solid black;
 }
 
 .sideBox {
