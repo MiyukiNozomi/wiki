@@ -21,13 +21,21 @@
 	</div>
 
 	<div class="content">
-		<div class="blog_post">
-			<div class="blog_post_content">
-				<h1>Reflective Studio</h1>
-				<p>Better than Visual C++</p>
-				<img src="res/reflective_studio.png">
-			</div>
+		<script src="https://code.jquery.com/jquery-latest.min.js"></script>
+
+		<div id="news_panel">
 		</div>
+
+		<script>
+			$.ajax({
+				url : "posts.html",
+				cache : false,
+				success : function(html) {
+					$("#news_panel").html(html); //Insert chat log into the #chatbox div	
+
+				},
+			});
+		</script>
 	</div>
 </body>
 </html>

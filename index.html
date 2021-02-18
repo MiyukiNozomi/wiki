@@ -6,6 +6,7 @@
 <link rel="stylesheet" href="res/style.css">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
+
 <body>
 
 	<div class="header">
@@ -15,32 +16,34 @@
 		</div>
 	</div>
 	<div class="sidenav">
-		<a href="news.html">News</a> <a
-			href="WebNML/getstarted.html">Get Started on WebNML (Doesn't
-			Exists anymore)</a> <a href="about.html">About Me</a>
+		<a href="news.html">News</a> <a href="WebNML/getstarted.html">Get
+			Started on WebNML (Doesn't Exists anymore)</a> <a href="about.html">About
+			Me</a>
 	</div>
 
 	<div class="content">
 		<h1>Welcome to my website.</h1>
 		<p>Yep, this is a static web page. that means</p>
 		<p>there is nothing too special here.</p>
-		
+
 		<h1>I Am Miyuki!</h1>
 		<h2>My Projects</h2>
-		<div class="blog_post" style="display:inline-block">
-			<div class="blog_post_content">
-				<h1>Reflective Studio</h1>
-				<p>Better than Visual C++</p>
-				<img src="res/reflective_studio.png">
-			</div>
+
+		<script src="https://code.jquery.com/jquery-latest.min.js"></script>
+
+		<div id="news_panel">
 		</div>
-		<div class="blog_post"  style="display:inline-block">
-			<div class="blog_post_content">
-				<h1>WeebEngine</h1>
-				<p>MeanRollerCoding's 3D Renderer as a Game Engine.</p>
-				<img src="res/weeb_engine.png">
-			</div>
-		</div>
+
+		<script>
+			$.ajax({
+				url : "posts.html",
+				cache : false,
+				success : function(html) {
+					$("#news_panel").html(html); //Insert chat log into the #chatbox div	
+
+				},
+			});
+		</script>
 	</div>
 </body>
 </html>
