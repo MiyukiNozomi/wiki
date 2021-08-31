@@ -1,49 +1,35 @@
-<!DOCTYPE html>
 <html>
 <head>
-<link rel="icon" href="res/icon.png">
 <title>MiyukiNozomi</title>
-<link rel="stylesheet" href="res/style.css">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="styles/body.css">
+<link rel="stylesheet" href="styles/header.css">
+<link rel="stylesheet" href="styles/project-panel.css">
 </head>
-
 <body>
-
-	<div class="header">
-		<a href="index.html" class="logo">MiyukiNozomi</a>
-		<div class="header-right">
-			<!--  -->
-		</div>
-	</div>
-	<div class="sidenav">
-		<a href="news.html">News</a> <a href="WebNML/getstarted.html">Get
-			Started on WebNML (Doesn't Exists anymore)</a> <a href="about.html">About
-			Me</a>
-	</div>
-
-	<div class="content">
-		<h1>Welcome to my website.</h1>
-		<p>Yep, this is a static web page. that means</p>
-		<p>there is nothing too special here.</p>
-
-		<h1>I Am Miyuki!</h1>
-		<h2>My Projects</h2>
-
-		<script src="https://code.jquery.com/jquery-latest.min.js"></script>
-
-		<div id="news_panel">
-		</div>
-
-		<script>
-			$.ajax({
-				url : "posts.html",
-				cache : false,
-				success : function(html) {
-					$("#news_panel").html(html); //Insert chat log into the #chatbox div	
-
-				},
-			});
-		</script>
-	</div>
+<div class="header">
+    <a href="index.html" class="logo">TheMiyukiNozomi</a>
+    <div class="header-right">
+        <a href="contact.html">Contact</a>
+        <a href="about.html">About</a>
+    </div>
+</div>
+<div class="content">
+<h2>Welcome to my GitHub website!</h2>
+<p>     Here, you will be able to find some bad projects, and some funny stuff, <br/>
+    > if you want to contact me, <br/> take a look at the <a href="contact.html">contact page</a>,<br/>
+    > if you want to know a little more about me, <br/> see the <a href="about.html"> about page</a>,<br/>
+    > if you don't want any of these, <br/> just scroll down the page.
+</p>
+<h2>Current Open-Source Projects</h2>
+<div class="projectpanel purple">
+<a href="https://miyukinozomi.github.io/SilverGarden/docs/index.html">
+    <img src="res/silvergarden.png">
+</a>
+</div>
+<div class="projectpanel padallow">
+    <a href="https://miyukinozomi.github.io/BrowserOS"><img src="https://miyukinozomi.github.io/BrowserOS/res/menu.png"> BrowserOS</a>
+    <p>a mimic of Chromium OS, inside a browser.</p>
+</div>
+</div>
 </body>
 </html>
