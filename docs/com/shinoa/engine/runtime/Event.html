@@ -1,29 +1,43 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link rel="icon" href="res/angelvm.png">
-<title>MiyukiSoftware</title>
+<link rel="icon" href="../../../../../res/icon.png">
+<title>ShinoaEngine Docs - @ShinoaGame</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
 
 <div class="header">
-  <a href="#default" class="logo">Miyuki Software  <a>Your feedback, my passion.</a></a>
+  <a href="#default" class="logo">SHINOAENGINE DOCUMENTATION</a>
   <div class="header-right">
-    <a class="active" href="#not-implemented">Support me</a>
-    <a href="#not-implemented">Contact</a>
+    <a class="active" href="#home">Download</a>
+    <a href="#contact">Donate</a>
   </div>
 </div>
-
-<div style="text-align: center;">
-  <h1 style="font-size: 50px;">Your feedback, my passion</h1>
-  <p style="font-size: 20px;margin-top: -15px;">All it takes is a simple comment on one of my projects,<br/> to boost me forward.</p>
-  <h2 style="color: #ff0000;font-size: 20px;"> page under construction, still need to finish it!</h2>
+<div class="sidenav">
+        <a href="../../../../documentation.html">Documentation</a>
+        <a href="../../../../../tutorials/getstarted.html">Tutorials</a>
+        <a href="#about">About</a>
 </div>
-<div style="border:1px solid black; width: 450px; padding: 12px 12px;margin-left: 30px;display: none;">
-  <h2>Todo's</h2>
 
-  <p>1) Add a painting of angelvm or miyuki on a computer reading discord messages or github issues.</p>
+<div style="padding-top: 100px; padding-left:220px;">
+<h2>public @interface Event</h2>
+<p>A Annotation, used in ShinoaProcessor. with detects any methods with this Annotation.</p>
+<h2>Methods</h2>
+<table>
+  <tbody>
+  <tr>
+    <th>Name</th>
+    <th>Arguments</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <th>type</th>
+    <th>type = [<a href="../events/EventType.html">EventType</a>]</th>
+    <th>Shows the Type of the Event.</th>
+  </tr>
+  </tbody>
+</table>
 </div>
 
 
@@ -31,7 +45,8 @@
         .link-button {
             border-radius: 12px;
             background-color: #008fbb;
-        
+            text-decoration: none;
+            color: white;
         }
 
         * {box-sizing: border-box;}
@@ -43,13 +58,19 @@
         }
         
         .header {
+          position: fixed;
           overflow: hidden;
           background-color: #f1f1f1;
           padding: 20px 10px;
+          width: 100%;
+          position: fixed;
+          top: 0;
+          left: 0;
+          z-index: 1;
         }
         
         .header a {
-          float: left;
+          float: left!important;
           color: black;
           text-align: center;
           padding: 12px;
@@ -91,7 +112,7 @@
         }
 
         .sidenav {
-            margin: 0;
+            margin-top: 90px;
             padding: 0;
             width: 200px;
             background-color: #e4e4e4;
@@ -106,6 +127,23 @@
             padding: 16px;
             text-decoration: none;
         }
+
+        table {
+          border-collapse: collapse;
+          width: 100%;
+        }
+
+        table a {
+          text-decoration: none;
+          color: black;
+        }
+
+        th, td {
+          text-align: left;
+          padding: 8px;
+        }
+
+        tr:nth-child(even) {background-color: #f2f2f2;}
         </style>
 </body>
 </html>
