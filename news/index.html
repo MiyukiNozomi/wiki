@@ -37,7 +37,7 @@
                 });
             }
             const content = document.querySelector(".content");
-            const postIDs = JSON.parse(await GetData("news.json"));
+            const postIDs = await GetData("news.json");
             const url = window.location;
             const urlObject = new URL(url);
             const post = urlObject.searchParams.get("post");

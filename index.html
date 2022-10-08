@@ -46,7 +46,7 @@
                         cache : false,
                     });
                 }
-                const news = JSON.parse(await GetData("news/news.json"));
+                const news = await GetData("news/news.json");
                 const posts = Object.keys(news.news);
                 const content = document.querySelector(".content");
 

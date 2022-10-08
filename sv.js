@@ -18,6 +18,9 @@ var funGetContentType = function (filePath) {
         case ".js":
             contentType = "text/javascript";
             break;
+        case ".json":
+            contentType = "application/json";
+            break;
         case ".css":
             contentType = "text/css";
             break;
