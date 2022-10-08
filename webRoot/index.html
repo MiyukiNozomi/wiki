@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShiChan Code - "Code of the Weeb"</title>
+    <link rel="icon" href="assets/icon.png" type="image/icon type">
+    <link rel="stylesheet" href="assets/main.css">
+
+    <script src="assets/jquery.js"></script>
+</head>
+
+<body>
+    <div class="sidebar">
+        <a class="active" href="">Home Page</a>
+        <a href="projects.html">Projects</a>
+        <a href="about.html">Developer</a>
+        <a href="docs/documentation.html">Old Website</a>
+    </div>
+
+    <div class="header">
+        <img src="assets/icon.png">
+        <h2>ShiChan Code - </h2>
+        <h3>"The Code of the Weeb"</h3>
+    </div>
+    <div class="content">
+        <h2>Projects i'm Currently working on:</h2>
+        <div class="projects_panel">
+            <p class="todo">[TO DO] finish projects tab</p>
+        </div>
+        <h2>Recent News and Updates</h2>
+        <div class="news_panel">
+
+        </div>
+
+
+        <script>
+            // loads news off a local html page.
+            // my dynamic version of this website still doesn't exists so....
+            let magic = async function() {
+                function GetData(d) {
+                    return $.ajax({
+                        url : d,
+                        cache : false,
+                    });
+                }
+                const news = JSON.parse(await GetData("news/news.json"));
+                const posts = Object.keys(news.news);
+                const content = document.querySelector(".content");
+
+                let html = "";
+                for (let i = 0; i < posts.length; i++) {
+                    if (i > 5)
+                        break;
+                    let data = news.news[posts[i]];
+                    html += `<div class=\"newspost\" onclick=\"window.open('news/index.html?post=${posts[i]}','_self');\">
+                                <img src="assets/${data.thumbnail}">
+                                <div class=\"sidepost\">
+                                    <span class=\"date\">${data.date}</span>
+                                    <h2>${data.title}</h2>
+                                    <h4>Written by ${data.author}</h4>
+                                </div>
+                            </div>`;
+                }
+                content.innerHTML += html;
+               /* $.ajax({
+                    url : "news.html",
+                    cache : false,
+                    success : function(html) {
+                        $(".news_panel").html(html);
+                    },
+                });*/
+            }
+            magic();
+        </script>
+    </div>
+</body>
+
+</html>

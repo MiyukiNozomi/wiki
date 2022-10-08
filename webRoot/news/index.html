@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShiChan Code News</title>
+    <link rel="icon" href="../assets/icon.png" type="image/icon type">
+    <link rel="stylesheet" href="news.css">
+    <link rel="stylesheet" href="../assets/main.css">
+
+    <script src="../assets/jquery.js"></script>
+</head>
+
+<body>
+    <div class="sidebar">
+        <a class="active" href="">News Page</a>
+        <a href="../index.html">Home Page</a>
+        <a href="../projects.html">Projects</a>
+        <a href="../about.html">Developer</a>
+        <a href="../docs/documentation.html">Old Website</a>
+    </div>
+
+    <div class="header">
+        <img src="../assets/icon.png">
+        <h2>ShiChan Code News</h2>
+    </div>
+    <div class="content">
+    </div>
+    <script>
+        let magic = async function() {
+            function GetData(d) {
+                return $.ajax({
+                    url : d,
+                    cache : false,
+                });
+            }
+            const content = document.querySelector(".content");
+            const postIDs = JSON.parse(await GetData("news.json"));
+            const url = window.location;
+            const urlObject = new URL(url);
+            const post = urlObject.searchParams.get("post");
+            if (post == null || post == undefined) {
+                content.innerHTML = "<h1 class=\"error\">You're not supposed to open this page like that :P</h1>"
+            } else if (!postIDs.news[post.trim()]) {
+                content.innerHTML = "<h1 class=\"error\">Post not found.</h1>";
+            } else {
+                let createPost = document.createElement("h1");
+                createPost.innerText = "Loading post \"" +post+ "\"... "
+                content.append(createPost);
+
+                let data = postIDs.news[post.trim()];
+                $.ajax({
+                    url : "/news/data/" + post + ".html",
+                    cache : false,
+                    success: function(html) {
+                        content.removeChild(createPost);
+                        content.innerHTML += `
+                            <div class="post">
+                                <div class="head">
+                                    <img src="../assets/${data.thumbnail}">
+                                    <div class=\"sidepost\">
+                                        <span class=\"date\">${data.date}</span>
+                                        <h2>${data.title}</h2>
+                                    </div>
+                                </div>
+                                <div class="pcontent">
+                                    ${html}
+                                </div>
+                            </div>
+                        `;
+                    }
+                });
+            } 
+        }
+        magic();
+    </script>
+</body>
+
+</html>
