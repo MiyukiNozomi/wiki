@@ -8,8 +8,6 @@
     <title>ShiChan Code - "Code of the Weeb"</title>
     <link rel="icon" href="assets/icon.png" type="image/icon type">
     <link rel="stylesheet" href="assets/main.css">
-
-    <script src="assets/jquery.js"></script>
 </head>
 
 <body>
@@ -40,13 +38,7 @@
             // loads news off a local html page.
             // my dynamic version of this website still doesn't exists so....
             let magic = async function() {
-                function GetData(d) {
-                    return $.ajax({
-                        url : d,
-                        cache : false,
-                    });
-                }
-                const news = await GetData("news/news.json");
+                const news = await (await fetch("news/news.json", {})).json();
                 const posts = Object.keys(news.news);
                 const content = document.querySelector(".content");
 

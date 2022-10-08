@@ -9,8 +9,6 @@
     <link rel="icon" href="../assets/icon.png" type="image/icon type">
     <link rel="stylesheet" href="news.css">
     <link rel="stylesheet" href="../assets/main.css">
-
-    <script src="../assets/jquery.js"></script>
 </head>
 
 <body>
@@ -29,15 +27,15 @@
     <div class="content">
     </div>
     <script>
-        let magic = async function() {
+        let magic = async function () {
             function GetData(d) {
                 return $.ajax({
-                    url : d,
-                    cache : false,
+                    url: d,
+                    cache: false,
                 });
             }
             const content = document.querySelector(".content");
-            const postIDs = await GetData("news.json");
+            const postIDs = await (await fetch("news.json", {})).json();
             const url = window.location;
             const urlObject = new URL(url);
             const post = urlObject.searchParams.get("post");
@@ -47,16 +45,13 @@
                 content.innerHTML = "<h1 class=\"error\">Post not found.</h1>";
             } else {
                 let createPost = document.createElement("h1");
-                createPost.innerText = "Loading post \"" +post+ "\"... "
+                createPost.innerText = "Loading post \"" + post + "\"... "
                 content.append(createPost);
 
                 let data = postIDs.news[post.trim()];
-                $.ajax({
-                    url : "/news/data/" + post + ".html",
-                    cache : false,
-                    success: function(html) {
-                        content.removeChild(createPost);
-                        content.innerHTML += `
+                let html = await (await fetch("data/" + post + ".html", {})).text();
+                content.removeChild(createPost);
+                content.innerHTML += `
                             <div class="post">
                                 <div class="head">
                                     <img src="../assets/${data.thumbnail}">
@@ -70,9 +65,7 @@
                                 </div>
                             </div>
                         `;
-                    }
-                });
-            } 
+            }
         }
         magic();
     </script>
