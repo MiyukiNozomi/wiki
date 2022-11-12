@@ -104,9 +104,10 @@ div.content h3 {
 
 .newspost {
   display: flex;
-  padding: 15px 15px;
-  max-height: 72px;
+  padding: 20px 20px;
+  max-height: 82px;
   border: 1px solid rgb(215, 215, 215);
+  margin-bottom: 15px;
 }
 
 .newspost:hover {

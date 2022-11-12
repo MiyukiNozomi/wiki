@@ -2,10 +2,16 @@
     background-color: rgb(185, 185, 185);
     background-image: url(background.jpg);
     background-repeat: no-repeat;
-    background-attachment: fixed;
+    background-attachment: local;
     background-size: cover;
 
-    overflow-y: none;
+    overflow: none;
+    height: 100%;
+}
+
+body {
+    overflow: none!important;
+    height: 100%;
 }
 
 .head {
@@ -41,7 +47,9 @@
 
 .pcontent {
     margin-left: 94px;
-    margin-top: -35px;
+    margin-top: -15px;
+    overflow: auto;
+    height: 80%;
 }
 
 .post {
@@ -49,4 +57,39 @@
     margin-top: 20px;
     border-radius: 20px;
     background-color: white;
+    
+    overflow: none;
+    height: calc(100% - 72px);
+}
+
+h4 {
+    margin-top: 35px;
+    margin-bottom: 0px;
+}
+
+.miyuki-codeblock {
+    margin-bottom: 20px;
+    margin-top: 20px;
+    background-color: rgb(22, 22, 22);   
+    padding: 12px 12px;
+    color: #ffffff;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+keyword {
+    color: rgb(104,151,187);
+}
+
+type {
+    color: #a5c25c;
+}
+
+quotes {
+    color: #cc7832;
+}
+
+token {
+    border: 1px solid #cccccc;
+    padding: 6px 6px;
+    color:black;
 }

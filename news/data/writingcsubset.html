@@ -1,0 +1,36 @@
+<p>Hello, Compilers are interesting pieces of software, often they will break down
+code that humans understand into code that the CPU can understand, however,
+there's another kind of compiler, that compiles from a high level language to
+another high level language, these compilers are known as Transpilers or 
+source-to-source compilers
+</p>
+<h3>The Internal Structure of a Compiler</h3>
+<p>Normally, compilers have 3 main sectors:
+    <h4>The Front End</h4>
+    Responsible for breaking down source code into a simpler data structure and already reporting
+    possible syntax errors and warnings.
+    <h4>Optimizer</h4>
+    This is were the simpler data structure gets a few optimizations to make the code
+    run faster and smaller,
+    <h4>The Back End</h4>
+    This is where actual code generation happens, here the final simpler data structure gets
+    transformed into runnable code.
+    <br/>
+    Also, there are compilers in which code generation happens directly in the front end.
+    they are known as Single-Pass compilers.
+    <br/>
+</p> 
+<h3>Breaking down Source Code</h3>
+So, lets say you got a simple Hello, World! like<br/>
+<pre class="miyuki-codeblock">
+<keyword>public</keyword> main() : <type>void</type> {
+    trace(<quotes>"Hello, World!"</quotes>);   
+}
+</pre>
+Your "Hello, World!" would be broken into a stream of tokens:<br/><br>
+<token>public</token><token>main</token><token>(</token><token>)</token><token>:</token><token>void</token><token>{</token><br><br>
+<token>trace</token><token>(</token><token>Hello, World!</token><token>)</token><token>;</token><br><br>
+<token>}</token><br><br>
+This stage is known as "Lexing", we break down text into separated tokens for pasing.
+<h3>Analysing Tokens</h3>
+Now with a token stream, we should start Analysing these tokens and report possible errors
